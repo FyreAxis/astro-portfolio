@@ -46,10 +46,9 @@
         players: number,
         cardsPerPack: number,
     ): number {
-        let seen = 0;
-        for (let i = 0; i < players; i++) {
-            seen += cardsPerPack - i;
-        }
+        let seenIgnoringPicks = (cardsPerPack * players);
+        let picks = (players - 1) * (players) / 2;
+        let seen = (players <= 0) ? 0 : seenIgnoringPicks - picks;
         return seen;
     }
 
